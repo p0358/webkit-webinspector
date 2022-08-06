@@ -8,10 +8,21 @@ Note that you need to use a WebKit browser on your PC in order to load the inspe
 * Linux: try Epiphany, WebKitGTK or WPE
 * Mac: use Safari
 
+## Screenshots
+
+<p float="left" align="middle">
+  <img src="https://user-images.githubusercontent.com/5182588/183248629-dadf0a22-8b00-475c-9dad-03340f109e09.png" width="30%" />
+  <img src="https://user-images.githubusercontent.com/5182588/183248791-6cbd8e13-5bba-4055-bd08-0a02382b184b.png" width="63%"  /> 
+</p>
+
 
 ## Prerequisite
-To debug iOS devices you need to have [ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy) installed and running. This tool is able to redirect the raw WebKit inspector websocket using USB and expose it on the network, which is very convenient for us. Follow its installation instructions in order to get your device configured and the tool running and ensure you successfully got a log entry like `Connected :9222 to iPhone` in its console.
-
+To debug iOS devices you need to have [ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy) installed and running. This tool is able to redirect the raw WebKit inspector websocket using USB and expose it on the network, which is very convenient for us. Follow its installation instructions in order to get your device configured and the tool running and ensure you successfully got a log entry like `Connected :9222 to iPhone` in its console:
+```
+>ios_webkit_debug_proxy
+Listing devices on :9221
+Connected :9222 to iPhone (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)
+```
 
 ## Usage
 To start static server, run
