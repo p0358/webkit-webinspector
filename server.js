@@ -21,7 +21,7 @@ for (const arg of process.argv.slice(2)) {
 }
 
 const staticPath = path.join(__dirname, 'lib', 'WebInspectorUI', version);
-const protoPath = path.join(__dirname, 'lib', 'WebInspectorUI', version, 'Protocol', 'Legacy', proto, 'InspectorBackendCommands.js'); //Protocol/Legacy/iOS/13.4/InspectorBackendCommands.js
+const protoPath = path.join(__dirname, 'lib', 'WebInspectorUI', version, 'Protocol', 'Legacy', proto, 'InspectorBackendCommands.js');
 if (!fs.existsSync(staticPath))
     console.error('Inspector version does not exist');
 else if (!fs.existsSync(protoPath))
@@ -47,6 +47,7 @@ connect()
         root: staticPath,
         match: /.*Base\/BrowserInspectorFrontendHost\.js/,
         transform: function (path, text, send) {
+            // fix for an inspector bug
             let newText = text.replace(/(this\._contextMenu \= )(WI\.SoftContextMenu\(items\)\;)/, '$1new $2');
             send(newText, {'Content-Type': 'text/javascript'});
         }
